@@ -37,3 +37,9 @@ samples, guidance on mobile development, and a full API reference.
     2.4 查看提交历史              git log
     2.5 创建远程仓库              git remote add origin https://github.com/yourusername/yourrepository.git
     2.6 推送初始版本到远程仓库      git push -u origin master
+
+3.开放pubspec.yaml文件中assets目录，用于存放应用程序的静态资源。
+    3.1 打开pubspec.yaml文件
+    3.2 在assets部分添加以下代码  *注意assets的缩进，
+        assets:
+            - lib/assets/
