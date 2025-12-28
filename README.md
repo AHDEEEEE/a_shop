@@ -43,3 +43,7 @@ samples, guidance on mobile development, and a full API reference.
     3.2 在assets部分添加以下代码  *注意assets的缩进，
         assets:
             - lib/assets/
+4.在components目录下创建Home目录，用于存放应用程序的首页组件。
+    4.1 在Home目录下创建Adslider.dart文件，用于存放广告轮播组件的代码。
+        4.1.1 只需要创建一个Container组件，用于包裹广告轮播组件。
+    4.2 在Home      
