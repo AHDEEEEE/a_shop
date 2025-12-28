@@ -1,3 +1,4 @@
+import 'package:a_shop/api/home.dart';
 import 'package:a_shop/components/Home/AdCategory.dart';
 import 'package:a_shop/components/Home/AdHot.dart';
 import 'package:a_shop/components/Home/AdMoreList.dart';
@@ -16,19 +17,19 @@ class HomeView extends StatefulWidget {
 }
 
 class _HomeViewState extends State<HomeView> {
-  final List<BannerItem> _bannerList = [
-    BannerItem(
-      id: "1",
-      imgUrl: "https://yjy-teach-oss.oss-cn-beijing.aliyuncs.com/meituan/1.jpg",
-    ),
-    BannerItem(
-      id: "2",
-      imgUrl: "https://yjy-teach-oss.oss-cn-beijing.aliyuncs.com/meituan/2.png",
-    ),
-    BannerItem(
-      id: "3",
-      imgUrl: "https://yjy-teach-oss.oss-cn-beijing.aliyuncs.com/meituan/3.jpg",
-    ),
+  List<BannerItem> _bannerList = [
+    // BannerItem(
+    //   id: "1",
+    //   imgUrl: "https://yjy-teach-oss.oss-cn-beijing.aliyuncs.com/meituan/1.jpg",
+    // ),
+    // BannerItem(
+    //   id: "2",
+    //   imgUrl: "https://yjy-teach-oss.oss-cn-beijing.aliyuncs.com/meituan/2.png",
+    // ),
+    // BannerItem(
+    //   id: "3",
+    //   imgUrl: "https://yjy-teach-oss.oss-cn-beijing.aliyuncs.com/meituan/3.jpg",
+    // ),
   ];
   // https://yjy-teach-oss.oss-cn-beijing.aliyuncs.com/meituan/1.jpg
   // https://yjy-teach-oss.oss-cn-beijing.aliyuncs.com/meituan/2.png
@@ -67,31 +68,22 @@ class _HomeViewState extends State<HomeView> {
   }
 
   @override
+  void initState() { 
+    super.initState();
+    _getBannerList();
+    
+  }
+
+  void _getBannerList() async {
+    _bannerList = await getBannerListAPI();
+    setState(() {});
+    }
+  
+
+  @override
   Widget build(BuildContext context) {
     return CustomScrollView(slivers: _getScrollChildern());
   }
 }
 
-Widget _getSearch() {
-  return Positioned(
-    top: 10,
-    left: 0,
-    right: 0,
-    child: Padding(
-      padding: EdgeInsets.all(10),
-      child: Container(
-        alignment: Alignment.center,
-        height: 50,
-        decoration: BoxDecoration(
-          color: Color.fromRGBO(0, 0, 0, 0.4),
-          borderRadius: BorderRadius.circular(25),
-        ),
-        child: Text(
-          "搜索...", 
-          style: TextStyle(
-            color: Colors.white,fontSize: 16
-          )),
-      ),
-    ),
-  );
-}
+

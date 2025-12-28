@@ -46,4 +46,32 @@ samples, guidance on mobile development, and a full API reference.
 4.在components目录下创建Home目录，用于存放应用程序的首页组件。
     4.1 在Home目录下创建Adslider.dart文件，用于存放广告轮播组件的代码。
         4.1.1 只需要创建一个Container组件，用于包裹广告轮播组件。
-    4.2 在Home      
+    4.2 在Home目录下创建AdCategory.dart文件，用于存放分类组件(横向滑动)的代码。
+        4.2.1 SizedBox(child:itemBuilder(){return Container(child:Text("分类"));})
+    4.3 在Home目录下创建AdSuggestion.dart文件，用于存放推荐组件的代码。
+        4.3.1 只需要创建一个Container组件，用于包裹推荐组件。
+    4.4 在Home目录下创建AdHot.dart文件，用于存放热门商品组件的代码。
+        4.4.1 只需要创建一个Container组件，用于包裹热门商品组件。
+    4.5 在Home目录下创建AdMoreList.dart文件，用于存放更多商品组件的代码。
+        4.5.1 SliverGrid.builder(itemBuilder: (BuildContext context,int index){return Container(child:Text("商品"));})
+    4.6 回到首页Home/index.dart文件，封装以上组件到CustomScrollView组件中。
+        4.6.1 CustomScrollView(slivers: [
+          SliverToBoxAdapter(child: AdSlider()),
+          SliverToBoxAdapter(child: AdCategory()),
+          SliverToBoxAdapter(child: AdSuggestion()),
+          SliverToBoxAdapter(child: AdHot()),
+          SliverToBoxAdapter(child: AdMoreList()),
+        ])
+    4.7 根据实际情况调整组件的大小、间距、颜色等。
+5.安装轮播图插件 flutter pub add carousel_slider
+6.在viewmodels目录下创建Home.dart文件，用于存放首页的视图模型代码。
+    6.1 定义BannerItem类，用于表示广告轮播项。
+        6.1.1 包含id和imgUrl属性。
+    6.2 在HomeViewModel类中定义_bannerList属性，用于存储广告轮播项列表。
+        6.2.1 初始化_bannerList属性为空列表。
+    6.3 在HomeViewModel类中定义getBannerList方法，用于获取广告轮播项列表。
+        6.3.1 返回_bannerList属性。
+
+# 获取轮播图数据
+7.在constants目录下创建一个index.dart文件，用于存放常量数据、基础地址、超时时间、业务状态、请求地址等。
+
